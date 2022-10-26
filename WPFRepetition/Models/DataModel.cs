@@ -18,6 +18,8 @@ namespace WPFRepetition.Models
             }
             set
             {
+                //Hej
+                //Hej
                 _counter = value;
                 CounterChanged?.Invoke(this, EventArgs.Empty);
             }
