@@ -8,11 +8,15 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <Button Command="{Binding ResetCommand}" Content="Reset" />
-            <TextBlock Width="50" Text="{Binding Counter, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Command="{Binding ResetCommand}" Content="Reset" FontSize="60"/>
+            <TextBlock Width="50" Text="{Binding Counter, UpdateSourceTrigger=PropertyChanged}" FontSize="100"/>
         </StackPanel>
-        <StackPanel DockPanel.Dock="Left" />
-        <StackPanel DockPanel.Dock="Right" />
+        <StackPanel DockPanel.Dock="Left">
+            <Button Command="{Binding NavigateLeftCommand}" Content="Show Left" FontSize="50"/>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Right">
+            <Button Command="{Binding NavigateRightCommand}" Content="Show Right" FontSize="50"/>
+        </StackPanel>
         <StackPanel DockPanel.Dock="Bottom" />
     </DockPanel>
 </UserControl>

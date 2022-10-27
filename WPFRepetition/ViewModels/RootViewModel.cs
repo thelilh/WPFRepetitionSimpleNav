@@ -10,11 +10,7 @@ namespace WPFRepetition.ViewModels
         private readonly DataManager _dataManager;
 
         #region Commands
-
-        public IRelayCommand NavigateLeftCommand { get; }
-        public IRelayCommand NavigateRightCommand { get; }
-        public IRelayCommand NavigateCenterCommand { get; }
-
+        
         #endregion
 
         public ObservableObject CurrentViewModel => _navigationManager.CurrentViewModel;
@@ -23,11 +19,6 @@ namespace WPFRepetition.ViewModels
         {
             _navigationManager = navigationManager;
             _dataManager = dataManager;
-
-            NavigateLeftCommand = new RelayCommand(() => _navigationManager.CurrentViewModel = new LeftViewModel(_dataManager.DataModel));
-            NavigateRightCommand = new RelayCommand(() => _navigationManager.CurrentViewModel = new RightViewModel(_dataManager.DataModel));
-            NavigateCenterCommand = new RelayCommand(() => _navigationManager.CurrentViewModel = new CenterViewModel(_dataManager.DataModel));
-
             _navigationManager.CurrentViewModelChanged += CurrentViewModelChanged;
         }
 

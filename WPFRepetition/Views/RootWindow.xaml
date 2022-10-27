@@ -23,16 +23,7 @@
                 <views:CenterView />
             </DataTemplate>
         </Grid.Resources>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <Button Command="{Binding NavigateLeftCommand}" Content="Show Left" />
-            <Button Command="{Binding NavigateCenterCommand}" Content="Show Center" />
-            <Button Command="{Binding NavigateRightCommand}" Content="Show Right" />
-        </StackPanel>
 
-        <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}" />
+        <ContentControl Content="{Binding CurrentViewModel}" />
     </Grid>
 </Window>
