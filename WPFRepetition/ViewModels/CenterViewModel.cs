@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using WPFRepetition.Models;
 
 namespace WPFRepetition.ViewModels
@@ -12,38 +13,34 @@ namespace WPFRepetition.ViewModels
     {
         #region Fields
 
-        private DataModel _dataModel;
+        private readonly DataModel _dataModel;
 
         #endregion
 
         #region Properties
 
-        private int _counter;
-
         public int Counter
         {
-            get { return _counter; }
-            set => SetProperty(ref _counter, value);
+            get => _dataModel.Counter;
+            set
+            {
+                _dataModel.Counter = value;
+                OnPropertyChanged(nameof(Counter));
+            }
         }
 
         #endregion
 
         #region Commands
 
-        
+        public IRelayCommand ResetCommand { get; }
 
         #endregion
 
         public CenterViewModel(DataModel dataModel)
         {
             _dataModel = dataModel;
-            InstanciateCommands();
-        }
-
-
-        private void InstanciateCommands()
-        {
-            throw new NotImplementedException();
+            ResetCommand = new RelayCommand(() => Counter = 0);
         }
     }
 }
